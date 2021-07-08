@@ -1,0 +1,30 @@
+<style>
+    html {
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+    ::-webkit-scrollbar {
+        width: 0;  /* Remove scrollbar space */
+        background: transparent;  /* Optional: just make scrollbar invisible */
+    }
+    /* Optional: show position indicator in red */
+    ::-webkit-scrollbar-thumb {
+        background: #FF0000;
+    }
+    #jpn_chart{
+        margin: auto;
+        padding-top: 3%;
+        background-color: white;
+    }
+</style>
+{% extends "base.html" %}
+
+{%block content%}
+<iframe src='{{ ticker_ }}' style="border: none;width: 100%; min-height: 83vh;"></iframe>
+<div id="jpn_chart"></div>
+<!-- Setting document title -->
+<script>
+    document.title = "{{symbol}}"
+</script>
+<script src="../static/js/multiple_series.js"></script>
+{% endblock %}
